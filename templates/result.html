@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Background direct image */
+        .safe {
+            background: url("/static/safe.jpeg");
+        }
+
+        .phishing {
+            background: url("/static/phishing.jpeg");
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        /* 🔥 Colors */
+        .safe h1 {
+            color: #00b894;
+        }
+
+        .phishing h1 {
+            color: #d63031;
+        }
+
+        p {
+            font-size: 18px;
+            color: black;
+        }
+
+        .url {
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 16px;
+            color: black;
+            word-break: break-all;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: black;
+            border: 2px solid black;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+
+        a:hover {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="{% if 'Safe' in result %}safe{% else %}phishing{% endif %}">
+
+    <div>
+
+        {% if "Safe" in result %}
+            <h1>✔ URL is Safe</h1>
+            <p>This website is secure.</p>
+        {% else %}
+            <h1>⚠ URL is Phishing</h1>
+            <p>This website is unsafe!</p>
+        {% endif %}
+
+        <div class="url">{{ url }}</div>
+
+        <a href="/">Check another URL</a>
+
+    </div>
+   
+</body>
+</html>

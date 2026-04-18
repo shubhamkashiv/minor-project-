@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Detection System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            height: 100vh;
+
+            background: url("/static/index.jpeg");
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+        }
+
+        .box {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        input {
+            padding: 15px;
+            width: 300px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            background: green;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>URL Detection System</h1>
+
+    <!-- 🔥 ONLY CHANGE HERE -->
+    <form action="/predict" method="POST">
+        <div class="box">
+            <input type="text" name="url" placeholder="Enter URL here" required>
+            <button type="submit">Scan Now</button>
+        </div>
+    </form>
+
+    {% if error %}
+    <p style="color:red; margin-top:10px;">{{ error }}</p>
+    {% endif %}
+
+    
+</body>
+</html>
